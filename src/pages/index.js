@@ -20,10 +20,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo title="Home" />
-      <h1>Hi people</h1>
+      <h1>Tom Chalancon</h1>
       <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-
 
       {
         projects.map(project => <ProjectCard project={project} key={project.title}/>)
