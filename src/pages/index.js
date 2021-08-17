@@ -1,5 +1,6 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,7 +11,7 @@ const IndexPage = () => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <p>Coucou</p>
+
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -19,6 +20,7 @@ const IndexPage = () => (
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
     />
+    <div id="contact"></div>
   </Layout>
 )
 
