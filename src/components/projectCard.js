@@ -5,18 +5,19 @@ import styled from "styled-components"
 
 
 const Card = styled.div`
-    border-radius: 12px;
-    padding: 8px;
+    width: 50%;
+    border-radius: 1em;
+    padding: 0.5em;
 `
 
 const ImageContainer = styled.div`   
-    border-radius: 12px;
+    border-radius: 16px 16px 0px 0px;
     background-color: red;
 `
 
 const TextContainer = styled.div`
-    border-radius: 0px 0px 12px 12px;
-    padding: 12px;
+    border-radius: 0px 0px 16px 16px;
+    padding: 0.5em;
     background-color: #E4E4E4;
 `
 
@@ -24,13 +25,13 @@ const TitleCard = styled.h2`
     font-family: 'Inter', sans-serif;
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 0.25em;
 `
 const SubtitleCard = styled.h4`
     font-family: 'Inter', sans-serif;
     font-size: 0.75em;
     font-weight: 400;
-    margin-bottom: 4px;
+    margin-bottom: 0.25em;
     color: #73808D
 `
 
@@ -43,7 +44,7 @@ const ProjectCard = ({ project }) => {
                     src="../images/coucou.jpg"
                     alt="Francois"
                     placeholder="blurred"
-                    height={200}
+                    height={250}
                     width={400}
                 />
             </ImageContainer>
