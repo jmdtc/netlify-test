@@ -8,12 +8,18 @@ import ProjectCard from "../components/projectCard"
 
 
 const projects = [
- {
-   title: "Test",
-   subtitle: "Prout test",
-   image: "../images/gatsby-astronaut.png",
-   path: "/projects/some-path"
- }   
+  {
+    title: "Test",
+    subtitle: "Prout test",
+    image: "../images/coucou.jpg",
+    path: "/projects/some-path"
+  },
+  {
+    title: "Test2",
+    subtitle: "Prout test",
+    image: "../images/coucou.jpg",
+    path: "/projects/some-path"
+  },
 ]
 
 const IndexPage = () => {
@@ -21,19 +27,16 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
       <h1>Tom Chalancon</h1>
-      <p>Welcome to your new Gatsby site.</p>
+      <p>Welcome to my Designer Portfolio.</p>
 
+      <h2>About</h2>
+      <p>Coucou c'est moi et voici quelques infos sur mon travail.</p>
+
+      <h2>Projects</h2>
       {
-        projects.map(project => <ProjectCard project={project} key={project.title}/>)
+        projects.map(project => <ProjectCard project={project} key={project.title} />)
       }
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="A Gatsby astronaut"
-        style={{ marginBottom: `1.45rem` }}
-      />
+
       <div id="contact"></div>
     </Layout>
   )
