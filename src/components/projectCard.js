@@ -4,54 +4,62 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 
+
+const CardContainer = styled.div`
+    padding: 1rem;
+    width: 50%;
+
+    @media only screen and (max-width: 576px) {
+        width: 100%
+    }
+`
+
 const Card = styled.div`
-    border-radius: 12px;
-    padding: 8px;
-`
-
-const ImageContainer = styled.div`   
-    border-radius: 12px;
-    background-color: red;
-`
-
-const TextContainer = styled.div`
-    border-radius: 0px 0px 12px 12px;
-    padding: 12px;
+    border-radius: 16px;
     background-color: #E4E4E4;
 `
 
-const TitleCard = styled.h2`
-    font-family: 'Inter', sans-serif;
-    font-size: 1.5em;
+const ImageContainer = styled.div`
+    background-color: #E4E4E4;
+    border-radius: 16px;
+`
+
+const TextContainer = styled.div`
+    padding: 0.5rem;
+`
+
+const TitleCard = styled.h3`
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
 `
 const SubtitleCard = styled.h4`
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75em;
+    font-size: 0.75rem;
     font-weight: 400;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     color: #73808D
 `
 
 const ProjectCard = ({ project }) => {
     const { title, subtitle, image, path } = project
     return (
-        <Card>
-            <ImageContainer>
-                <StaticImage
-                    src="../images/coucou.jpg"
-                    alt="Francois"
-                    placeholder="blurred"
-                    height={200}
-                    width={400}
-                />
-            </ImageContainer>
-            <TextContainer>
-                <TitleCard> {title} </TitleCard>
-                <SubtitleCard> {subtitle} </SubtitleCard>
-            </TextContainer>
-        </Card>
+        <CardContainer>
+            <Card>
+                <ImageContainer>
+                    <StaticImage
+                        src={"../images/coucou.jpg"}
+                        alt="Francois"
+                        layout="fullWidth"
+                        aspectRatio={1 / 0.6}
+                        style={{ borderRadius: "16px" }}
+                    />
+                </ImageContainer>
+                <TextContainer>
+                    <TitleCard> {title} </TitleCard>
+                    <SubtitleCard> {subtitle} </SubtitleCard>
+                </TextContainer>
+            </Card>
+        </CardContainer>
     )
 }
 
