@@ -59,16 +59,24 @@ const ProjectCardsContainer = styled.div`
     padding: 1rem;
     margin-bottom: 2rem;
 `
-
-
 const SectionTitle = styled.h2`
     font-size: 2rem;
+    letter-spacing: 3px;
     font-weight: 700;
     margin-bottom: 0.5rem;
 `
 const AboutParagraph = styled.p`
+    line-height: 2.4;
     font-weight: 500;
+    margin-top: 1rem;
     margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 8rem;
+
+    @media only screen and (max-width: 800px) {
+      margin-right: 2rem;
+  }
+  }
 `
 const ResumeBtn = styled.button`
     margin: auto;
@@ -85,12 +93,14 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
 
+      <div id="about"></div>
       <SectionTitle>About</SectionTitle>
       <AboutParagraph>I am a french Graphic Designer based in Berlin. Growing up in France
         right next to the Swiss border, I moved to Berlin three years ago in
         order to develop my creative skills. I have recently graduated from
         university with a Bachelor in Communication Design.</AboutParagraph>
 
+      <div id="projects"></div>
       <SectionTitle>Projects</SectionTitle>
       <ProjectCardsContainer>
         {
@@ -98,6 +108,7 @@ const IndexPage = () => {
         }
       </ProjectCardsContainer>
 
+      <div id="work-experience"></div>
       <SectionTitle>Work experience</SectionTitle>
       <WorkCardsContainer>
         {
@@ -107,7 +118,6 @@ const IndexPage = () => {
           <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
         </ResumeBtn>
       </WorkCardsContainer>
-
 
       <div id="contact"></div>
 

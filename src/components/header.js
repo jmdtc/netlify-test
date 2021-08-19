@@ -9,7 +9,9 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
 `
-
+const NameWebsiteBtn = styled.h1`
+  font-weight: 700;
+`
 const RightSideContainer = styled.div`
   display: flex;
 
@@ -25,7 +27,7 @@ const RightSideContainer = styled.div`
 const links = [
   {
     label: "About",
-    link: "/about"
+    link: "/#about"
   },
   {
     label: "Projects",
@@ -43,9 +45,11 @@ const links = [
 
 const Header = ({ siteTitle }) => (
   <HeaderContainer>
-    <Link to="/">
-      {siteTitle}
-    </Link>
+    <NameWebsiteBtn>
+      <Link to="/">
+        {siteTitle}
+      </Link>
+    </NameWebsiteBtn>
     <RightSideContainer>
       {
         links.map(({ link, label }) => (
