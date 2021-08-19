@@ -3,11 +3,10 @@ import { StaticImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-
 const Card = styled.div`
     width: 50%;
-    border-radius: 1em;
-    padding: 0.5em;
+    border-radius: 16px;
+    padding: 0.5rem;
 `
 
 const ImageContainer = styled.div`   
@@ -17,21 +16,21 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
     border-radius: 0px 0px 16px 16px;
-    padding: 0.5em;
+    padding: 0.5rem;
     background-color: #E4E4E4;
 `
 
 const TitleCard = styled.h2`
     font-family: 'Inter', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.25rem;
 `
 const SubtitleCard = styled.h4`
     font-family: 'Inter', sans-serif;
-    font-size: 0.75em;
+    font-size: 0.75rem;
     font-weight: 400;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.25rem;
     color: #73808D
 `
 
@@ -41,7 +40,7 @@ const ProjectCard = ({ project }) => {
         <Card>
             <ImageContainer>
                 <StaticImage
-                    src="../images/coucou.jpg"
+                    src={image}
                     alt="Francois"
                     placeholder="blurred"
                     height={250}
