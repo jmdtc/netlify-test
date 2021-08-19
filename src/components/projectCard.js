@@ -28,7 +28,7 @@ const TextContainer = styled.div`
     padding: 0.5rem;
 `
 
-const TitleCard = styled.h2`
+const TitleCard = styled.h3`
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
