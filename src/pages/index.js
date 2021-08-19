@@ -47,18 +47,23 @@ const works = [
   },
 ]
 
-const Work = styled.div`
+const WorkCardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em;
 `
-const Project = styled.div`
+const ProjectCardsContainer = styled.div`
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em;
     margin-bottom: 2em;
+
+    @media only screen and (min-width: 768px) {
+      .Project {width: 8.33%;}
+    }
 `
 const Title = styled.h2`
     font-family: 'Lora', serif;
@@ -71,7 +76,7 @@ const About = styled.p`
     font-weight: 500;
     margin-bottom: 2em;
 `
-const Resume = styled.div`
+const ResumeBtn = styled.div`
     margin: auto;
     font-family: 'Inter', sans-serif;
     text-align: center;
@@ -95,21 +100,21 @@ const IndexPage = () => {
         university with a Bachelor in Communication Design.</About>
 
       <Title>Projects</Title>
-      <Project>
+      <ProjectCardsContainer>
         {
           projects.map(project => <ProjectCard project={project} key={project.title} />)
         }
-      </Project>
+      </ProjectCardsContainer>
 
       <Title>Work experience</Title>
-      <Work>
+      <WorkCardsContainer>
         {
           works.map(work => <WorkCard work={work} key={work.title} />)
         }
-        <Resume>
+        <ResumeBtn>
           <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
-        </Resume>
-      </Work>
+        </ResumeBtn>
+      </WorkCardsContainer>
 
 
       <div id="contact"></div>
