@@ -4,15 +4,24 @@ import styled from "styled-components"
 
 const Card = styled.div`
     width: 33%;
+    height: 30%;
     border-radius: 16px;
     padding: 0.5rem;
+
+    @media only screen and (max-width: 880px) {
+        width: 100%;
+    }
 `
 
 const TextContainer = styled.div`
-    height: 230px;
+    height: 225px;
     border-radius: 16px;
     padding: 0.75rem;
     background-color: #E4E4E4;
+
+    @media only screen and (max-width: 880px) {
+        height: 175px;
+    }
 `
 const TitleCard = styled.h3`
     font-size: 1.25rem;

@@ -33,12 +33,12 @@ const works = [
   {
     title: "Le Drustore Modern",
     date: "May 2017 - June 2017",
-    description: "Responsible for the redesign of the website and assets creation, product photography, event marketing, motion design"
+    description: "During my intership, I was responsible for the redesign of the website and creation of banners and social media assets, product photography, event marketing, motion design"
   },
   {
     title: "Freelance",
     date: "2017 - 2018",
-    description: "Creation and support of many kinds of projects such as logo creation, posters, communication campaigns, photography and event organisation"
+    description: "As a Graphic Designer, I was involved in the support of many kinds of projects such as logo creation, posters, communication campaigns, photography and event organisation"
   },
   {
     title: "Zalando",
@@ -80,6 +80,10 @@ const ResumeBtn = styled.button`
     margin-top: 1rem;
     border-radius: 0.75rem;
     border: 1px solid #C4C4C4; 
+
+    @media only screen and (max-width: 756px) {
+      width: 40%
+  }
 `
 
 const IndexPage = () => {
