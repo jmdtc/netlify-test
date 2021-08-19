@@ -51,40 +51,34 @@ const WorkCardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1rem;
 `
 const ProjectCardsContainer = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1em;
-    margin-bottom: 2em;
-
-    @media only screen and (min-width: 768px) {
-      .Project {width: 8.33%;}
-    }
+    padding: 1rem;
+    margin-bottom: 2rem;
 `
-const Title = styled.h2`
+const SectionTitle = styled.h2`
     font-family: 'Lora', serif;
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 `
-const About = styled.p`
-    font-family: 'Inter', sans-serif;
+const AboutParagraph = styled.p`
     font-weight: 500;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 `
-const ResumeBtn = styled.div`
+const ResumeBtn = styled.button`
     margin: auto;
-    font-family: 'Inter', sans-serif;
     text-align: center;
     background-color: white;
     width: 20%;
-    padding: 0.5em;
-    margin-top: 1em;
-    border-radius: 0.75em;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
     border: 1px solid #C4C4C4; 
 `
 
@@ -93,20 +87,20 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
 
-      <Title>About</Title>
-      <About>I am a french Graphic Designer based in Berlin. Growing up in France
+      <SectionTitle>About</SectionTitle>
+      <AboutParagraph>I am a french Graphic Designer based in Berlin. Growing up in France
         right next to the Swiss border, I moved to Berlin three years ago in
         order to develop my creative skills. I have recently graduated from
-        university with a Bachelor in Communication Design.</About>
+        university with a Bachelor in Communication Design.</AboutParagraph>
 
-      <Title>Projects</Title>
+      <SectionTitle>Projects</SectionTitle>
       <ProjectCardsContainer>
         {
           projects.map(project => <ProjectCard project={project} key={project.title} />)
         }
       </ProjectCardsContainer>
 
-      <Title>Work experience</Title>
+      <SectionTitle>Work experience</SectionTitle>
       <WorkCardsContainer>
         {
           works.map(work => <WorkCard work={work} key={work.title} />)

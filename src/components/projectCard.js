@@ -8,6 +8,10 @@ const Card = styled.div`
     width: 50%;
     border-radius: 16px;
     padding: 0.5rem;
+
+    @media only screen and (max-width: 576px) {
+        width: 100%
+    }
 `
 
 const ImageContainer = styled.div`   
