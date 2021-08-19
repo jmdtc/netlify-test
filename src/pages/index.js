@@ -33,12 +33,12 @@ const works = [
   {
     title: "Le Drustore Modern",
     date: "May 2017 - June 2017",
-    description: "During my intership, I was responsible for the redesign of the website and creation of banners and social media assets, product photography, event marketing, motion design"
+    description: "Responsible for the redesign of the website and assets creation, product photography, event marketing, motion design"
   },
   {
     title: "Freelance",
     date: "2017 - 2018",
-    description: "As a Graphic Designer, I was involved in the support of many kinds of projects such as logo creation, posters, communication campaigns, photography and event organisation"
+    description: "Creation and support of many kinds of projects such as logo creation, posters, communication campaigns, photography and event organisation"
   },
   {
     title: "Zalando",
@@ -50,19 +50,18 @@ const works = [
 const WorkCardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 1rem;
 `
 const ProjectCardsContainer = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 1rem;
     margin-bottom: 2rem;
 `
+
+
 const SectionTitle = styled.h2`
-    font-family: 'Lora', serif;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -75,15 +74,10 @@ const ResumeBtn = styled.button`
     margin: auto;
     text-align: center;
     background-color: white;
-    width: 20%;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     margin-top: 1rem;
     border-radius: 0.75rem;
     border: 1px solid #C4C4C4; 
-
-    @media only screen and (max-width: 756px) {
-      width: 40%
-  }
 `
 
 const IndexPage = () => {
