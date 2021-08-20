@@ -14,17 +14,17 @@ const Card = styled.div`
 `
  
 const TextContainer = styled.div`
-    height: 225px;
+    height: 310px;
     border-radius: 16px;
     padding: 0.75rem;
     background-color: #E4E4E4;
  
     @media only screen and (max-width: 576px) {
-        height: 175px;
+        height: 200px;
     }
  
     @media only screen and (min-width: 576px) and (max-width: 768px) {
-        height: 300px;
+        height: 400px;
     }
 `
 const TitleCard = styled.h3`
@@ -34,13 +34,13 @@ const TitleCard = styled.h3`
     margin-bottom: 0.5rem;
 `
 const Date = styled.h4`
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     text-align: center;
     margin-bottom: 1.25rem;
 `
 const Description = styled.h4`
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 500;
     text-align: center;
     line-height: 1.5;

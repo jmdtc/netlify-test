@@ -59,25 +59,43 @@ const ProjectCardsContainer = styled.div`
     padding: 1rem;
     margin-bottom: 2rem;
 `
-
-
 const SectionTitle = styled.h2`
     font-size: 2rem;
+    letter-spacing: 3px;
     font-weight: 700;
     margin-bottom: 0.5rem;
 `
 const AboutParagraph = styled.p`
+    line-height: 2.4;
     font-weight: 500;
+    margin-top: 1rem;
     margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 8rem;
+
+    @media only screen and (max-width: 768px) {
+      margin-right: 2rem;
+  }
+  }
 `
 const ResumeBtn = styled.button`
     margin: auto;
     text-align: center;
-    background-color: white;
+    background-color: #E4E4E4;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     border-radius: 0.75rem;
-    border: 1px solid #C4C4C4; 
+    border: 1px solid #E4E4E4; 
+
+    > :link, > :visited {
+      text-decoration: none;
+      color: #000;
+    }
+
+   > :hover {
+     background-color:black
+      color: white;
+    }
 `
 
 const IndexPage = () => {
@@ -85,29 +103,33 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
 
+      <div id="about"></div>
       <SectionTitle>About</SectionTitle>
       <AboutParagraph>I am a french Graphic Designer based in Berlin. Growing up in France
         right next to the Swiss border, I moved to Berlin three years ago in
         order to develop my creative skills. I have recently graduated from
         university with a Bachelor in Communication Design.</AboutParagraph>
 
-      <SectionTitle>Projects</SectionTitle>
-      <ProjectCardsContainer>
-        {
-          projects.map(project => <ProjectCard project={project} key={project.title} />)
-        }
-      </ProjectCardsContainer>
+      <div id="projects">
+        <SectionTitle>Projects</SectionTitle>
+        <ProjectCardsContainer>
+          {
+            projects.map(project => <ProjectCard project={project} key={project.title} />)
+          }
+        </ProjectCardsContainer>
+      </div>
 
-      <SectionTitle>Work experience</SectionTitle>
-      <WorkCardsContainer>
-        {
-          works.map(work => <WorkCard work={work} key={work.title} />)
-        }
-        <ResumeBtn>
-          <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
-        </ResumeBtn>
-      </WorkCardsContainer>
-
+      <div id="work-experience">
+        <SectionTitle>Work experience</SectionTitle>
+        <WorkCardsContainer>
+          {
+            works.map(work => <WorkCard work={work} key={work.title} />)
+          }
+          <ResumeBtn>
+            <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
+          </ResumeBtn>
+        </WorkCardsContainer>
+      </div>
 
       <div id="contact"></div>
 

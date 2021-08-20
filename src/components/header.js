@@ -4,17 +4,42 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const HeaderContainer = styled.header`
+  z-index: 99;
+  margin-top: 30px;
+  position: sticky;
+  top: 0;
   background: white;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
-`
 
+  
+`
+const NameWebsiteBtn = styled.h1`
+  font-weight: 700;
+
+  > :link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  > :visited {
+    text-decoration: none;
+    color: #000;
+  }
+`
 const RightSideContainer = styled.div`
   display: flex;
+  margin-top:0.25rem;
 
-  > *:hover {
+  > :link {
+    text-decoration: none;
+    color: #000;
+  }  
 
+  > :visited {
+    text-decoration: none;
+    color: #000;
   }
 
   > :not(:last-of-type) {
@@ -25,7 +50,7 @@ const RightSideContainer = styled.div`
 const links = [
   {
     label: "About",
-    link: "/about"
+    link: "/#about"
   },
   {
     label: "Projects",
@@ -43,16 +68,20 @@ const links = [
 
 const Header = ({ siteTitle }) => (
   <HeaderContainer>
-    <Link to="/">
-      {siteTitle}
-    </Link>
+    <NameWebsiteBtn>
+      <Link to="/">
+        {siteTitle}
+      </Link>
+    </NameWebsiteBtn>
     <RightSideContainer>
       {
         links.map(({ link, label }) => (
           <Link
             to={link}
             key={label}
-            activeStyle={{ color: "green", backgroundColor: "purple" }}
+            activeStyle={{ 
+              color: "green", 
+              backgroundColor: "purple"}}
           >
             {label}
           </Link>)
