@@ -4,16 +4,42 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const HeaderContainer = styled.header`
+  z-index: 99;
+  margin-top: 30px;
+  position: sticky;
+  top: 0;
   background: white;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+
+  
 `
 const NameWebsiteBtn = styled.h1`
   font-weight: 700;
+
+  > :link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  > :visited {
+    text-decoration: none;
+    color: #000;
+  }
 `
 const RightSideContainer = styled.div`
   display: flex;
+
+  > :link {
+    text-decoration: none;
+    color: #000;
+  }  
+
+  > :visited {
+    text-decoration: none;
+    color: #000;
+  }
 
   > *:hover {
 
@@ -56,7 +82,9 @@ const Header = ({ siteTitle }) => (
           <Link
             to={link}
             key={label}
-            activeStyle={{ color: "green", backgroundColor: "purple" }}
+            activeStyle={{ 
+              color: "green", 
+              backgroundColor: "purple"}}
           >
             {label}
           </Link>)
