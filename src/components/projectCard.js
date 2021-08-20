@@ -12,6 +12,11 @@ const CardContainer = styled.div`
     @media only screen and (max-width: 576px) {
         width: 100%
     }
+
+    > :hover {
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+        transform: scale(1.03);
+      }
 `
 
 const Card = styled.div`

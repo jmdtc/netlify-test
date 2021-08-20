@@ -81,11 +81,20 @@ const AboutParagraph = styled.p`
 const ResumeBtn = styled.button`
     margin: auto;
     text-align: center;
-    background-color: white;
+    background-color: #E4E4E4;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     border-radius: 0.75rem;
-    border: 1px solid #C4C4C4; 
+    border: 1px solid #E4E4E4; 
+
+    > :link, > :visited {
+      text-decoration: none;
+      color: #000;
+    }
+
+    > :hover {
+      color: white;
+    }
 `
 
 const IndexPage = () => {
