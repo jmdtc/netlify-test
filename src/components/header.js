@@ -30,6 +30,7 @@ const NameWebsiteBtn = styled.h1`
 `
 const RightSideContainer = styled.div`
   display: flex;
+  margin-top:0.25rem;
 
   > :link {
     text-decoration: none;
@@ -39,10 +40,6 @@ const RightSideContainer = styled.div`
   > :visited {
     text-decoration: none;
     color: #000;
-  }
-
-  > *:hover {
-
   }
 
   > :not(:last-of-type) {

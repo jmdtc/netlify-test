@@ -12,16 +12,18 @@ const CardContainer = styled.div`
     @media only screen and (max-width: 576px) {
         width: 100%
     }
-
-    > :hover {
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-        transform: scale(1.03);
-      }
 `
 
 const Card = styled.div`
     border-radius: 16px;
     background-color: #E4E4E4;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    :hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.15);
+        cursor: pointer;
+    }
 `
 
 const ImageContainer = styled.div`

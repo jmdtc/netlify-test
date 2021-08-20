@@ -73,7 +73,7 @@ const AboutParagraph = styled.p`
     margin-left: 2rem;
     margin-right: 8rem;
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 768px) {
       margin-right: 2rem;
   }
   }
@@ -92,7 +92,8 @@ const ResumeBtn = styled.button`
       color: #000;
     }
 
-    > :hover {
+   > :hover {
+     background-color:black
       color: white;
     }
 `
@@ -109,24 +110,26 @@ const IndexPage = () => {
         order to develop my creative skills. I have recently graduated from
         university with a Bachelor in Communication Design.</AboutParagraph>
 
-      <div id="projects"></div>
-      <SectionTitle>Projects</SectionTitle>
-      <ProjectCardsContainer>
-        {
-          projects.map(project => <ProjectCard project={project} key={project.title} />)
-        }
-      </ProjectCardsContainer>
+      <div id="projects">
+        <SectionTitle>Projects</SectionTitle>
+        <ProjectCardsContainer>
+          {
+            projects.map(project => <ProjectCard project={project} key={project.title} />)
+          }
+        </ProjectCardsContainer>
+      </div>
 
-      <div id="work-experience"></div>
-      <SectionTitle>Work experience</SectionTitle>
-      <WorkCardsContainer>
-        {
-          works.map(work => <WorkCard work={work} key={work.title} />)
-        }
-        <ResumeBtn>
-          <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
-        </ResumeBtn>
-      </WorkCardsContainer>
+      <div id="work-experience">
+        <SectionTitle>Work experience</SectionTitle>
+        <WorkCardsContainer>
+          {
+            works.map(work => <WorkCard work={work} key={work.title} />)
+          }
+          <ResumeBtn>
+            <a href="../images/Tom Chalancon_CV.pdf" download> Download CV</a>
+          </ResumeBtn>
+        </WorkCardsContainer>
+      </div>
 
       <div id="contact"></div>
 
