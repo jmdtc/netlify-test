@@ -64,6 +64,10 @@ const SectionTitle = styled.h2`
     letter-spacing: 3px;
     font-weight: 700;
     margin-bottom: 0.5rem;
+
+    @media only screen and (max-width: 768px) {
+      text-align: center;
+    }
 `
 const AboutParagraph = styled.p`
     line-height: 2.4;
