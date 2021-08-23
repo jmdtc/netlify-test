@@ -70,12 +70,13 @@ const Navbar = {
       display: none;
     }
 
+    font-size: 3rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
     position: fixed;
-    top: 2rem;
-    right: 2rem;
+    top: 4rem;
+    right: 4rem;
     z-index: 100;
   `
 };
@@ -95,7 +96,7 @@ font-weight: 700;
 const HamburgerButton = {
   Wrapper: styled.button`
   height: 3rem;
-  width: 3rem;
+  width: 2rem;
   position: relative;
   font-size: 12px;
 
@@ -188,8 +189,8 @@ function Header({ siteTitle }) {
       {
         drawerIsOpen ?
           <Navbar.CloseBtn onClick={() => toggleDrawer(false)}>
-            X
-        </Navbar.CloseBtn> :
+            ×
+          </Navbar.CloseBtn> :
           null
       }
 
