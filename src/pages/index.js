@@ -109,10 +109,12 @@ const IndexPage = () => {
 
       <div id="about"></div>
       <SectionTitle>About</SectionTitle>
-      <AboutParagraph>I am a french Graphic Designer based in Berlin. Growing up in France
+      <AboutParagraph>
+        I am a french Graphic Designer based in Berlin. Growing up in France
         right next to the Swiss border, I moved to Berlin three years ago in
         order to develop my creative skills. I have recently graduated from
-        university with a Bachelor in Communication Design.</AboutParagraph>
+        university with a Bachelor in Communication Design.
+      </AboutParagraph>
 
       <div id="projects">
         <SectionTitle>Projects</SectionTitle>
