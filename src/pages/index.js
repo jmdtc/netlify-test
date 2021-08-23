@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ProjectCard from "../components/projectCard"
 import WorkCard from "../components/workCard"
-
+import Contact from "../components/contact"
 
 const projects = [
   {
@@ -80,16 +80,17 @@ const AboutParagraph = styled.p`
     @media only screen and (max-width: 768px) {
       margin-right: 2rem;
   }
-  }
 `
 const ResumeBtn = styled.button`
     margin: auto;
     text-align: center;
     background-color: #E4E4E4;
-    padding: 0.5rem 1rem;
+    padding: .5rem 1rem;
     margin-top: 1rem;
-    border-radius: 0.75rem;
+    border-radius: .75rem;
     border: 1px solid #E4E4E4; 
+    width: 180px;
+
 
     > :link, > :visited {
       text-decoration: none;
@@ -100,6 +101,10 @@ const ResumeBtn = styled.button`
      background-color:black
       color: white;
     }
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 2rem;
+  }
 `
 
 const IndexPage = () => {
@@ -137,7 +142,10 @@ const IndexPage = () => {
         </WorkCardsContainer>
       </div>
 
-      <div id="contact"></div>
+      <div id="contact">
+        <SectionTitle>Contact</SectionTitle>
+        <Contact />
+      </div>
 
     </Layout>
   )
