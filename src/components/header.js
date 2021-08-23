@@ -1,102 +1,203 @@
-import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import styled from "styled-components"
+import React, { useState } from "react";
+import styled from "styled-components";
 
-const HeaderContainer = styled.header`
+const Navbar = {
+  Wrapper: styled.nav`
+  flex: 1;
   z-index: 99;
+  align-self: flex-start;
+  padding: 3rem 3rem; 
   margin-top: 30px;
   position: sticky;
   top: 0;
-  background: white;
-  padding: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
 
-  
-`
-const NameWebsiteBtn = styled.h1`
-  font-weight: 700;
-
-  > :link {
-    text-decoration: none;
-    color: #000;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
   }
-
-  > :visited {
-    text-decoration: none;
-    color: #000;
-  }
-`
-const RightSideContainer = styled.div`
+`,
+  Items: styled.ul`
   display: flex;
-  margin-top:0.25rem;
+  list-style: none;
 
-  > :link {
-    text-decoration: none;
-    color: #000;
-  }  
+  @media only screen and (max-width: 768px) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    
+    height: 100%;
+    width: 100%;
+    
 
-  > :visited {
-    text-decoration: none;
-    color: #000;
+    flex-direction: column;
+
+    background-color: white;
+    padding: 8rem 8rem;
+
+    transition: 0.2s ease-out;
+
+    transform: ${({ drawerIsOpen }) =>
+      drawerIsOpen ? `translateY(0)` : `translateY(-100%)`};
+  }
+`,
+  Item: styled.li`
+  padding: 0 1rem;
+  cursor: pointer;
+
+  >:link {
+      text-decoration: none;
+      color: #000;
+    }  
+  
+  >:visited {
+      text-decoration: none;
+      color: #000;
+    }
+
+  @media only screen and (max-width: 768px) {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+`,
+  CloseBtn: styled.button`
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+  `
+};
+const NameWebsiteBtn = styled.h1`
+font-weight: 700;
+
+> :link {
+  text-decoration: none;
+  color: #000;
+}
+
+> :visited {
+  text-decoration: none;
+  color: #000;
+}
+`
+const HamburgerButton = {
+  Wrapper: styled.button`
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+  font-size: 12px;
+
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
   }
 
-  > :not(:last-of-type) {
-    margin-right: 1rem;
+  /* Remove default button styles */
+  border: none;
+  background: transparent;
+  outline: none;
+
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+  }
+`,
+  Lines: styled.div`
+  top: 25%;
+  margin-top: -0.125em;
+
+  &,
+  &:after,
+  &:before {
+    /* Create lines */
+    height: 2px;
+    pointer-events: none;
+    display: block;
+    content: "";
+    width: 100%;
+    background-color: black;
+    position: absolute;
+  }
+
+  &:after {
+    /* Move bottom line below center line */
+    top: -0.8rem;
+  }
+
+  &:before {
+    /* Move top line on top of center line */
+    top: 0.8rem;
   }
 `
+};
 
-const links = [
-  {
-    label: "About",
-    link: "/#about"
-  },
-  {
-    label: "Projects",
-    link: "/#projects"
-  },
-  {
-    label: "Work experience",
-    link: "/#work-experience"
-  },
-  {
-    label: "Contact",
-    link: "/#contact"
-  },
-]
 
-const Header = ({ siteTitle }) => (
-  <HeaderContainer>
-    <NameWebsiteBtn>
-      <Link to="/">
-        {siteTitle}
-      </Link>
-    </NameWebsiteBtn>
-    <RightSideContainer>
+function Header({ siteTitle }) {
+  const [drawerIsOpen, toggleDrawer] = useState(false);
+
+  return (
+
+    <Navbar.Wrapper>
+      <NameWebsiteBtn>
+        <Link to="/">
+          {siteTitle}
+        </Link>
+      </NameWebsiteBtn>
+      <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
+        <HamburgerButton.Lines />
+      </HamburgerButton.Wrapper>
+
       {
-        links.map(({ link, label }) => (
-          <Link
-            to={link}
-            key={label}
-            activeStyle={{ 
-              color: "green", 
-              backgroundColor: "purple"}}
-          >
-            {label}
-          </Link>)
-        )
+        drawerIsOpen ?
+          <Navbar.CloseBtn onClick={() => toggleDrawer(false)}>
+            X
+        </Navbar.CloseBtn> :
+          null
       }
-    </RightSideContainer>
-  </HeaderContainer>
-)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+      <Navbar.Items drawerIsOpen={drawerIsOpen}>
+        <Navbar.Item>
+          <Link to="/#about">
+            About
+          </Link>
+        </Navbar.Item>
+        <Navbar.Item>
+          <Link to="/#projects">
+            Projects
+          </Link>
+        </Navbar.Item>
+        <Navbar.Item>
+          <Link to="/#work-experience">
+            Work Experience
+          </Link>
+        </Navbar.Item>
+        <Navbar.Item>
+          <Link to="/#contact">
+            Contact
+          </Link></Navbar.Item>
+      </Navbar.Items>
+    </Navbar.Wrapper>
+  );
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
