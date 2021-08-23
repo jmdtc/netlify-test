@@ -155,8 +155,26 @@ const HamburgerButton = {
 function Header({ siteTitle }) {
   const [drawerIsOpen, toggleDrawer] = useState(false);
 
-  return (
+  const links = [
+    {
+      label: "About",
+      path: "/#about"
+    },
+    {
+      label: "Projects",
+      path: "/#projects"
+    },
+    {
+      label: "Work experience",
+      path: "/#work-experience"
+    },
+    {
+      label: "Contact",
+      path: "/#contact"
+    },
+  ]
 
+  return (
     <Navbar.Wrapper>
       <NameWebsiteBtn>
         <Link to="/">
@@ -176,25 +194,15 @@ function Header({ siteTitle }) {
       }
 
       <Navbar.Items drawerIsOpen={drawerIsOpen}>
-        <Navbar.Item>
-          <Link to="/#about">
-            About
-          </Link>
-        </Navbar.Item>
-        <Navbar.Item>
-          <Link to="/#projects">
-            Projects
-          </Link>
-        </Navbar.Item>
-        <Navbar.Item>
-          <Link to="/#work-experience">
-            Work Experience
-          </Link>
-        </Navbar.Item>
-        <Navbar.Item>
-          <Link to="/#contact">
-            Contact
-          </Link></Navbar.Item>
+        {
+          links.map(({ label, path }) => (
+            <Navbar.Item key={label} onClick={() => toggleDrawer(false)}>
+              <Link to={path}>
+                {label}
+              </Link>
+            </Navbar.Item>
+          ))
+        }
       </Navbar.Items>
     </Navbar.Wrapper>
   );
