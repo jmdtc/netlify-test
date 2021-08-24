@@ -1,40 +1,23 @@
 backend:
-  #name: github
-  #repo: tomyboy1997/tomiboy-portfolio
-  name: test-repo
-media_folder: static/assets
-public_folder: /assets
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: static/img
+public_folder: /img
+
 collections:
-  - name: project
-    label: Project
-    folder: project
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
     create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
-  - name: workExperience
-    label: Work Experience
-    folder: workExperience
-    create: true
-    fields:
-      - { name: title, label: Title }
-      - { name: timeframe, label: Timeframe }
-      - { name: description, label: Description }
-  - label: "Pages"
-    name: "pages"
-    files:
-      - label: "About Page"
-        name: "about"
-        file: "site/content/about.yml"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Intro, name: intro, widget: markdown}
-          - label: Team
-            name: team
-            widget: list
-            fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Position, name: position, widget: string}
-              - {label: Photo, name: photo, widget: image}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
