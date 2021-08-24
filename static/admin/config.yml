@@ -1,6 +1,7 @@
 backend:
-  name: github
-  repo: tomyboy1997/tomiboy-portfolio
+  #name: github
+  #repo: tomyboy1997/tomiboy-portfolio
+  name: test-repo
 media_folder: static/assets
 public_folder: /assets
 collections:
@@ -13,6 +14,14 @@ collections:
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+  - name: workExperience
+    label: Work Experience
+    folder: workExperience
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: timeframe, label: Timeframe }
+      - { name: description, label: Description }
   - label: "Pages"
     name: "pages"
     files:

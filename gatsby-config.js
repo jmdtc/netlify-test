@@ -30,19 +30,22 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
-       },    
-       {
-        resolve: `gatsby-plugin-google-fonts`,
-        options: {
-          fonts: [
-            `lora\:700`,
-            `inter\:400,500,700` // you can also specify font weights and styles
-          ],
-          display: 'swap'
-        }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `lora\:700`,
+          `inter\:400,500,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
       }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -140
+      }
+    }
   ],
 }
