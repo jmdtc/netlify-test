@@ -1,5 +1,6 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -48,24 +49,26 @@ const SubtitleCard = styled.h4`
 `
 
 const ProjectCard = ({ project }) => {
-    const { title, subtitle, image, path } = project
+    const { title, company, year, thumbnail, slug } = project
+
     return (
         <CardContainer>
-            <Card>
-                <ImageContainer>
-                    <StaticImage
-                        src={"../images/coucou.jpg"}
-                        alt="Francois"
-                        layout="fullWidth"
-                        aspectRatio={1 / 0.6}
-                        style={{ borderRadius: "16px" }}
-                    />
-                </ImageContainer>
-                <TextContainer>
-                    <TitleCard> {title} </TitleCard>
-                    <SubtitleCard> {subtitle} </SubtitleCard>
-                </TextContainer>
-            </Card>
+            <Link to={slug}>
+                <Card>
+                    <ImageContainer>
+                        <GatsbyImage
+                            image={getImage(thumbnail)}
+                            alt={`${title} thumbnail`}
+                            aspectRatio={1 / 0.6}
+                            style={{ borderRadius: "16px" }}
+                        />
+                    </ImageContainer>
+                    <TextContainer>
+                        <TitleCard> {title} </TitleCard>
+                        <SubtitleCard> {company} - {year} </SubtitleCard>
+                    </TextContainer>
+                </Card>
+            </Link>
         </CardContainer>
     )
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -8,6 +8,8 @@ import ProjectCard from "../components/projectCard"
 import WorkCard from "../components/workCard"
 import Contact from "../components/contact"
 
+
+/*
 const projects = [
   {
     title: "Kompo",
@@ -28,6 +30,7 @@ const projects = [
     path: "/projects/some-path"
   },
 ]
+*/
 
 const works = [
   {
@@ -108,6 +111,62 @@ const ResumeBtn = styled.button`
 `
 
 const IndexPage = () => {
+  const {
+    projects: { edges: projects },
+    paragraphs: { edges: paragraphs },
+    workExperiences: { edges: workExperiences } } =
+    useStaticQuery(
+      graphql`
+      query getAllHomepageContent {
+        projects: allMarkdownRemark(
+          filter: {frontmatter: {templateKey: {eq: "project"}}}
+        ) {
+          edges {
+            node {
+              html
+              frontmatter {
+                year
+                title
+                company
+                slug
+                thumbnail {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        paragraphs: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "paragraph"}}}) {
+          edges {
+            node {
+              rawMarkdownBody
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+
+        workExperiences: allMarkdownRemark(
+          filter: {frontmatter: {templateKey: {eq: "workExperience"}}}
+        ) {
+          edges {
+            node {
+              rawMarkdownBody
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }
+    `)
+
+
+  console.log(paragraphs, workExperiences);
   return (
     <Layout>
       <Seo title="Home" />
@@ -115,17 +174,18 @@ const IndexPage = () => {
       <div id="about"></div>
       <SectionTitle>About</SectionTitle>
       <AboutParagraph>
-        I am a french Graphic Designer based in Berlin. Growing up in France
-        right next to the Swiss border, I moved to Berlin three years ago in
-        order to develop my creative skills. I have recently graduated from
-        university with a Bachelor in Communication Design.
+        {
+          paragraphs[
+            paragraphs.findIndex(({node}) => node.frontmatter.title === "About")
+          ].node.rawMarkdownBody
+        }
       </AboutParagraph>
 
       <div id="projects">
         <SectionTitle>Projects</SectionTitle>
         <ProjectCardsContainer>
           {
-            projects.map(project => <ProjectCard project={project} key={project.title} />)
+            projects.map(({ node: { frontmatter } }) => <ProjectCard project={frontmatter} key={frontmatter.title} />)
           }
         </ProjectCardsContainer>
       </div>

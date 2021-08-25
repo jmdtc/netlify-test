@@ -1,23 +1,39 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
 
-media_folder: static/img
-public_folder: /img
+# when using the default proxy server port
+local_backend: true
 
+media_folder: static/assets
+public_folder: /assets
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: project
+    label: Projects
+    folder: content/projects
     create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { name: templateKey, label: Template Key, required: true, widget: hidden, default: project }
+      - { name: slug, label: Slug, widget: string }
+      - { name: year, label: Year, widget: date, format: YYYY, date_format: YYYY }
+      - { name: company, label: Company }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+      - { name: thumbnail, label: Thumbnail, widget: image, allow_multiple: false}
+  - name: paragraphs
+    label: Paragraphs
+    folder: content/paragraphs
+    create: true
+    fields:
+      - { name: templateKey, label: Template Key, required: true, widget: hidden, default: paragraph }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: text }
+  - name: workExperiences
+    label: Work experiences
+    folder: content/workExperiences
+    create: true
+    fields:
+      - { name: templateKey, label: Template Key, required: true, widget: hidden, default: workExperience }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: text }
+      - { name: startingDate, label: Starting Date, widget: date, format: MM YYYY, date_format: MM YYYY }
+      - { name: endingDate, label: Ending Date, widget: date, format: MM YYYY, date_format: MM YYYY }
